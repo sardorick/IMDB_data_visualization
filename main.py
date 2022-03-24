@@ -36,7 +36,8 @@ for i in actors:
     for j in i:
         actors_name.append(j.replace("'"," ").strip("[ ]"))
 
-columns = 1
+
 df_stars = pd.DataFrame(actors_name)
+
 st.header("Best actors in Crime movies")
-st.dataframe(df_stars.value_counts())
+st.bar_chart(df_stars[0].value_counts().nlargest(10))
